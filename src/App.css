@@ -1,82 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.quiz-container {
-  max-width: 600px;
+.app-container {
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh;
-  color: #ffffff;  /* 文字色を白に */
+  box-sizing: border-box;
 }
 
-.start-screen {
-  margin-top: 50px;
-}
-
-.question-screen {
-  margin-top: 20px;
-}
-
-input {
-  padding: 10px;
-  margin: 10px;
-  width: 300px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #2a2a2a;  /* 入力欄の背景色を暗めに */
-  color: #ffffff;  /* 入力テキストを白に */
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  background-color: #646cff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background-color: #535bf2;
-}
-
-.result {
-  margin-top: 20px;
-  font-size: 24px;
-}
-
-h1 {
-  color: #ffffff;  /* 見出し1を白に */
-  font-size: 2.5em;
-  margin-bottom: 1em;
-}
-
-h2 {
-  color: #ffffff;  /* 見出し2を白に */
-  font-size: 1.8em;
-  margin-bottom: 0.8em;
-}
-
-p {
-  color: #ffffff;  /* 段落テキストを白に */
-  font-size: 1.2em;
-  margin: 0.5em 0;
-}
-
-.result {
-  margin-top: 20px;
-  font-size: 24px;
-  color: #ffffff;  /* 結果表示を白に */
-}
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+} 

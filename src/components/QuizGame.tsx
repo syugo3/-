@@ -118,7 +118,7 @@ const QuizGame: React.FC = () => {
     
     if (isCorrect) {
       audio.playSE('correct').catch(console.error);
-      setFeedback(`⭕️ 正解！ +${calculatePoints()}ポイント！`);
+      setFeedback('');
       setStreak(prev => prev + 1);
       setShowExplanation(true);
       setGameState(prev => ({
@@ -248,10 +248,6 @@ const QuizGame: React.FC = () => {
       
       {!showRetryOptions && (
         <>
-          <div className={styles.timerContainer}>
-            <div className={styles.timer}>{gameState.timeLeft}</div>
-            <div className={styles.timerRing} />
-          </div>
           <div className={`${styles.quizContainer} ${styles.questionScreen}`}>
             {renderAudioControls()}
             <div className={styles.progressBar}>
@@ -283,22 +279,19 @@ const QuizGame: React.FC = () => {
                 {feedback}
               </p>
               {showExplanation && (
-                <div className={styles.explanationOverlay}>
-                  <div className={styles.explanationCard}>
-                    <h3 className={styles.explanationTitle}>正解！</h3>
-                    <div className={styles.correctAnswer}>
-                      正解: {getOptionText(currentQuestion.question, currentQuestion.answer)}
-                    </div>
-                    <p className={styles.explanationText}>
-                      💡解説：{currentQuestion.explanation}
-                    </p>
-                    <button 
-                      className={styles.nextButton}
-                      onClick={nextQuestion}
-                    >
-                      次の問題へ進む
-                    </button>
+                <div className={styles.explanationScreen}>
+                  <p className={styles.pointsText}>ポイント＋{calculatePoints()}</p>
+                  <p className={styles.correctAnswer}>正解：{currentQuestion.answer}</p>
+                  <div className={styles.explanationContent}>
+                    <p className={styles.explanationLabel}>解説：</p>
+                    <p className={styles.explanationText}>{currentQuestion.explanation}</p>
                   </div>
+                  <button 
+                    className={styles.nextButton}
+                    onClick={nextQuestion}
+                  >
+                    次の問題に進む
+                  </button>
                 </div>
               )}
               <p className={styles.attempts}>残り回答回数: {3 - gameState.attempts}</p>
